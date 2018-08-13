@@ -6,7 +6,7 @@ metadata:
 data:
   NEW_FEATURE: "true"
   OTHER_FEATURE: "true"
-
+  SOME_OTHER_FEATURE: "true"
 ---
 
 apiVersion: apps/v1beta2
