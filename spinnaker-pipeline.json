@@ -1,0 +1,69 @@
+{
+  "application": "sample",
+  "expectedArtifacts": [
+    {
+      "defaultArtifact": {
+        "kind": "default.github",
+        "name": "manifests/demo.yml",
+        "reference": "https://api.github.com/repos/bmenasha/repository1/contents/manifests/demo.yml",
+        "type": "github/file",
+        "version": "master"
+      },
+      "id": "62108410-5628-469f-810a-38da8cb9b87g",
+      "matchArtifact": {
+        "kind": "github",
+        "name": "manifests/demo.yml",
+        "type": "github/file"
+      },
+      "useDefaultArtifact": true,
+      "usePriorExecution": false
+    }
+  ],
+  "id": "1367eb5c-2056-458e-91c3-a9229afb67fd",
+  "index": 0,
+  "keepWaitingPipelines": false,
+  "lastModifiedBy": "anonymous",
+  "limitConcurrent": true,
+  "name": "sample2",
+  "stages": [
+    {
+      "account": "spinnaker",
+      "cloudProvider": "kubernetes",
+      "manifestArtifactAccount": "bmenasha-github",
+      "manifestArtifactId": "62108410-5628-469f-810a-38da8cb9b87f",
+      "moniker": {
+        "app": "sample"
+      },
+      "name": "Deploy (Manifest)",
+      "refId": "1",
+      "relationships": {
+        "loadBalancers": [],
+        "securityGroups": []
+      },
+      "requiredArtifactIds": [],
+      "requisiteStageRefIds": [],
+      "source": "artifact",
+      "type": "deployManifest"
+    }
+  ],
+  "triggers": [
+    {
+      "branch": "master",
+      "enabled": true,
+      "project": "bmenasha",
+      "secret": "mysecret",
+      "slug": "repository1",
+      "source": "github",
+      "type": "git"
+    },
+    {
+      "account": "gcr-account",
+      "enabled": true,
+      "organization": "bmenasha-spinnaker-demo-1",
+      "registry": "gcr.io",
+      "repository": "bmenasha-spinnaker-demo-1/k8s-demo",
+      "type": "docker"
+    }
+  ],
+  "updateTs": "1534787649100"
+}
