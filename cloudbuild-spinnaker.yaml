@@ -1,3 +1,4 @@
 steps:
 - name: 'gcr.io/bmenasha-spinnaker-demo-1/builder-spin'
+  entrypoint: '/spin'
   args: [ 'pipeline', 'save', '--file', 'spinnaker-pipeline.json', '--gate-endpoint', 'https://spinnaker-api.gcpidentityexample-2.com', ' --insecure']
