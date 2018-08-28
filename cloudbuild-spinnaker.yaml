@@ -1,4 +1,10 @@
 steps:
-- name: 'gcr.io/bmenasha-spinnaker-demo-1/builder-spin'
-  args: [ 'pipeline', 'save', '--file', 'spinnaker-pipeline.json', '--gate-endpoint', 'https://spinnaker-api.gcpidentityexample-2.com', ' --insecure']
-  entrypoint: /builder/home/spin
+- name: gcr.io/cloud-builders/gsutil
+  entrypoint: '/bin/bash'
+  args:
+  - '-c'
+  - |
+        gsutil cp  gs://bmenasha-spinnaker-demo-1-utilities spin
+        mkdir $HOME/.spin
+        gsutil cp gs://bmenasha-spinnaker-demo-1-utilities/spin-config $HOME/.spin/config
+        ./spin pipeline save --file spinnaker-pipeline.json --gate-endpoint https://spinnaker-api.gcpidentityexample-2.com  --insecure
