@@ -24,7 +24,7 @@
   "keepWaitingPipelines": false,
   "lastModifiedBy": "anonymous",
   "limitConcurrent": true,
-  "name": "sample-app",
+  "name": "sample-changed",
   "stages": [
     {
       "account": "spinnaker",
