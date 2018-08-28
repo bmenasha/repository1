@@ -4,10 +4,4 @@ steps:
   args:
   - '-c'
   - |
-    gsutil cp  gs://bmenasha-spinnaker-demo-1-utilities/spin .
-    mkdir /builder/home/.spin
-    gsutil cp gs://bmenasha-spinnaker-demo-1-utilities/spin-config /builder/home/.spin/config
-    chmod +x spin
-    ls
-    echo `ls`
-    ./spin pipeline save --file spinnaker-pipeline.json --gate-endpoint https://spinnaker-api.gcpidentityexample-2.com  --insecure
+    curl --trace-ascii -  -H"cookie: $(gsutil cat gs://bmenasha-spinnaker-demo-1-utilities/sessioncookie.txt)" -XPOST   --data-ascii @spinnaker-pipeline.json -H'content-type: application/json' -k https://spinnaker-api.gcpidentityexample-2.com/pipelines
